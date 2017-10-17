@@ -1,0 +1,49 @@
+.t_navbar {
+  /*background-color: #fafafa;*/
+  position: relative;
+  height: .86rem;
+  border-bottom:.01rem solid #d9d9d9 ;
+  padding: 0 .24rem;
+  div{}
+  .logo {
+    width: 2rem;
+    height: .6rem;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%,-50%,0);
+    a{
+      display: block;
+      line-height:.6rem;
+      font-size: .42rem;
+      font-family: cursive;
+      font-weight: bold;
+      color: #444;
+    }
+  }
+  .tabs{
+    position: relative;
+    height: 100%;
+    a{
+      position: absolute;
+      height: .5rem;
+      width: .5rem;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i{
+        font-size: .46rem;
+      }
+    }
+    a:nth-of-type(2){
+      right:.8rem
+    }
+    a:nth-of-type(3){
+      right: 0;
+    }
+  }
+}
