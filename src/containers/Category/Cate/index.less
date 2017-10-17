@@ -38,4 +38,36 @@
       }
     }
   }
+  .list{
+    .cateItem{
+      display: inline-block;
+      width: 33.33%;
+      margin-bottom: 0.2rem;
+      a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .cateImgWrapper{
+          width: 1.2rem;
+          height: 1.3rem;
+          img{
+            width:100%;
+          }
+        }
+        .name{
+          height: .6rem;
+          font-size: .26rem;
+          color: #333;
+          text-align: center;
+          line-height: .4rem;
+        }
+      }
+
+    }
+    //&:nth-child(3n){
+    //  margin-right: -.13333rem;
+    //}
+
+  }
 }
