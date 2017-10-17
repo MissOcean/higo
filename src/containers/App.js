@@ -6,11 +6,11 @@ import Cart from "./Cart/index";
 import Topic from "./Topic/index";
 import Category from "./Category/index";
 import User from "./User/index";
-import BNavBar from "../componnets/BNavbar/index";
+import BNavBar from "../components/BNavbar/index";
 //import {ConnectedRouter} from 'react-router-redux'
 import '../api/rem'
 import '../common/style/reset.less'
-import TNavbar from "../componnets/TNavbar/index";
+import TNavbar from "../components/TNavbar/index";
 export default class App extends Component {
     render() {
         return (

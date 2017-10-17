@@ -1,0 +1,41 @@
+.cate{
+  margin-left: 1.5rem;
+  padding: .3rem .3rem .28rem;
+  .banner{
+    position: relative;
+    width: 100%;
+    height: 2.56rem;
+    display: table;
+    background: center no-repeat #f4f4f4;
+    background-size: cover;
+    border-radius: 4px;
+    background-image:url(http://yanxuan.nosdn.127.net/42e7c6777be6d05a6e3cd6b22a2707a7.png?imageView&thumbnail=0x196&quality=75);;
+  }
+  .hd{
+    height: 1.44rem;
+    line-height: 1.44rem;
+    text-align: center;
+    font-size: .32rem;
+    color: #333;
+    .text{
+      position: relative;
+      &:before,&:after{
+        left: -.74667rem;
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 1px;
+        width: .53333rem;
+        background-color: #d9d9d9;
+        -webkit-transform-origin: 50% 100% 0;
+        transform-origin: 50% 100% 0;
+      }
+      &:after{
+        left: auto;
+        right: -.74667rem;
+      }
+    }
+  }
+}
