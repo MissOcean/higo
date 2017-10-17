@@ -11,6 +11,8 @@ import BNavBar from "../components/BNavbar/index";
 import '../api/rem'
 import '../common/style/reset.less'
 import TNavbar from "../components/TNavbar/index";
+
+import Detail from "./Detail/index";
 export default class App extends Component {
     render() {
         return (
@@ -22,8 +24,10 @@ export default class App extends Component {
                         <Route path="/cart" component={Cart}></Route>
                         <Route path="/user" component={User}></Route>
                         <Route path="/category" component={Category}></Route>
+                        <Route path="/detail" component={Detail}>
+
+                        </Route>
                     </Switch>
-                    <BNavBar/>
                 </div>
             </Router>
         )
