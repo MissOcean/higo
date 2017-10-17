@@ -3,7 +3,7 @@ import axios from 'axios';
 
 //home-recommend
 export function getRecommendData() {
-    const url = '/api/getRecommendData'
+    const url = 'http://localhost:9090/api/getRecommendData'
     return axios.get(url).then(res => {
         return Promise.resolve(res.data)
     })
@@ -11,8 +11,8 @@ export function getRecommendData() {
 
 /* 分类项目列表 (主页、分类页用到)*/
 export function getCateItem(categoryId, subCategoryId) {
-    //get:/api/getCateItem?categoryId=xxx&subCategoryId=xxxx
-    const url = '/api/getCateItem'
+    //get:http://localhost:9090/api/getCateItem?categoryId=xxx&subCategoryId=xxxx
+    const url = 'http://localhost:9090/api/getCateItem'
     return axios.get(url, {
         params: {
             categoryId, subCategoryId
@@ -24,8 +24,8 @@ export function getCateItem(categoryId, subCategoryId) {
 
 /* 获取分类列表 (分类页用到)*/
 export function getCateList(categoryId) {
-    //get:/api/getCateList?categoryId=xxx
-    const url = '/api/getCateList'
+    //get:http://localhost:9090/api/getCateList?categoryId=xxx
+    const url = 'http://localhost:9090/api/getCateList'
     return axios.get(url, {
         params: {
             categoryId
@@ -39,8 +39,8 @@ export function getCateList(categoryId) {
 
 //detail-product
 export function getProductDetail(productId) {
-    //get:/api/getProductDetail?id=xxx
-    const url = '/api/getProductDetail'
+    //get:http://localhost:9090/api/getProductDetail?id=xxx
+    const url = 'http://localhost:9090/api/getProductDetail'
     return axios.get(url, {
         params: {
             id: productId
@@ -52,8 +52,8 @@ export function getProductDetail(productId) {
 
 //detail-product-rcmd
 export function getRcmdByProduct(id) {
-    //get:/api/getRcmdByProduct?id=1241017
-    const url = '/api/getRcmdByProduct'
+    //get:http://localhost:9090/api/getRcmdByProduct?id=1241017
+    const url = 'http://localhost:9090/api/getRcmdByProduct'
     return axios.get(url, {
         params: {
             id
@@ -65,8 +65,8 @@ export function getRcmdByProduct(id) {
 
 //detail-goodRate
 export function getProductGoodRate(productId) {
-    //get:/api/getProductGoodRate?itemId=xxx
-    const url = '/api/getProductGoodRate'
+    //get:http://localhost:9090/api/getProductGoodRate?itemId=xxx
+    const url = 'http://localhost:9090/api/getProductGoodRate'
     return axios.get(url, {
         params: {
             itemId: productId
@@ -78,8 +78,8 @@ export function getProductGoodRate(productId) {
 
 //detail-comment-tags
 export function getCommentTags(productId) {
-    //get:/api/getCommentTags?itemId=xxx
-    const url = '/api/getCommentTags'
+    //get:http://localhost:9090/api/getCommentTags?itemId=xxx
+    const url = 'http://localhost:9090/api/getCommentTags'
     return axios.get(url, {
         params: {
             itemId: productId
@@ -91,8 +91,8 @@ export function getCommentTags(productId) {
 
 //detail-comment-comment
 export function getCommentByTag(tag, itemId, page) {
-    //get:/api/getCommentByTag?tag=全部&itemId=1241017&page=1
-    const url = '/api/getCommentByTag'
+    //get:http://localhost:9090/api/getCommentByTag?tag=全部&itemId=1241017&page=1
+    const url = 'http://localhost:9090/api/getCommentByTag'
     return axios.get(url, {
         params: {
             tag, itemId, page
@@ -106,7 +106,7 @@ export function getCommentByTag(tag, itemId, page) {
 
 //专题(识物页)
 export function getTopicData() {
-    const url = '/api/getTopicData'
+    const url = 'http://localhost:9090/api/getTopicData'
     return axios.get(url).then(res => {
         return Promise.resolve(res.data)
     })
