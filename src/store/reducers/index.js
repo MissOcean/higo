@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-
+import detail from './detail'
 let initState = {
     count: 0
 }
@@ -12,5 +12,6 @@ let reducer = (state = initState, action) => {
     return state
 }
 export default combineReducers({
+    detail,
     reducer
 })

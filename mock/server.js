@@ -4,6 +4,7 @@ let bodyParser = require('body-parser')
 let cookieParser = require('cookie-parser');
 let session = require('express-session')
 let apiRoutes = require('./apiRoutes')
+let routes = require('./Route')
 let app = express()
 app.use(function (req, res, next) {
     console.log(req.pathname)
@@ -27,5 +28,6 @@ app.use(session({
     saveUninitialized: true,
     secret: 'higo'
 }));
-app.use('/api', apiRoutes)
+app.use('/api', apiRoutes);
+app.use('/', routes)
 app.listen(9090)

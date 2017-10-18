@@ -80,14 +80,25 @@ apiRoutes.get(configs.productDetailRoute, (req, res) => {
     axios.get(url, {
         params: req.query
     }).then(response => {
-        res.json(response.data)
+        let jsonData = response.data;
+        let {itemDetail, characteristicList, listPicUrl, comments} = jsonData.item
+        //detailHtml格式：'src="https://xxx" _src="https://yyy" style=""'
+        let reg = /http[^"]*(?="\s_src)/g
+        let detailPicList = itemDetail.detailHtml.match(reg)
+        listPicUrl = [].concat(listPicUrl)
+        for (let k in itemDetail) {
+            if (k !== 'detailHtml') {
+                listPicUrl.push(itemDetail[k])
+            }
+        }
+        res.json({characteristicList, listPicUrl, detailPicList, comments})
     }).catch(e => console.log(e))
 })
 //根据商品获取推荐
 apiRoutes.get(configs.rcmdByProductRoute, (req, res) => {
     let url = configs.rcmdByProductUrl;
     axios.post(url, ecode.stringify(req.query)).then(response => {
-        res.json(response.data)
+        res.json(response.data.data)
     }).catch(e => console.log(e))
 })
 

@@ -37,7 +37,7 @@ export function getCateList(categoryId) {
 }
 
 
-//detail-product
+/* 获取商品详细信息(商品详情页)*/
 export function getProductDetail(productId) {
     //get:http://localhost:9090/api/getProductDetail?id=xxx
     const url = 'http://localhost:9090/api/getProductDetail'
@@ -50,7 +50,7 @@ export function getProductDetail(productId) {
     })
 }
 
-//detail-product-rcmd
+/* 根据商品id获取推荐商品 */
 export function getRcmdByProduct(id) {
     //get:http://localhost:9090/api/getRcmdByProduct?id=1241017
     const url = 'http://localhost:9090/api/getRcmdByProduct'
@@ -112,3 +112,16 @@ export function getTopicData() {
     })
 }
 
+//登陆注册
+export function login(user) {
+    const url = 'http://localhost:9090/login'
+    return axios.post(url,user).then(res => {
+        return Promise.resolve(res.data)
+    })
+}
+export function register(user) {
+    const url = 'http://localhost:9090/register'
+    return axios.post(url,user).then(res => {
+        return Promise.resolve(res.data)
+    })
+}
