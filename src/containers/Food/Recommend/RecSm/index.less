@@ -1,0 +1,61 @@
+.recommend-sm {
+  display: flex;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #d9d9d9;
+  border-radius: .05333rem;
+  margin-bottom: .4rem;
+  font-size: 0.3rem;
+  .topInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    padding-left: .26667rem;
+    padding-right: .4rem;
+    .author {
+      margin-bottom: .33333rem;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      .avatar {
+        width: 0.64rem;
+        height: 0.64rem;
+        margin-right: 0.10666666666666667rem;
+        border-radius: 50%;
+      }
+      .nickname {
+        color: #333;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+    .line1{
+      margin-bottom: .18667rem;
+      line-height: 1.2;
+    }
+    .line2{
+      display: -webkit-box;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+    }
+
+  }
+  .minorPic {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    .pic {
+      background-image: url(https://yanxuan.nosdn.127.net/697068558258a80cdfcb7531c8266c80.jpg?imageView&quality=75);
+      background-size: cover;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

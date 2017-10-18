@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import NavLink from "react-router-dom/es/NavLink";
-import './index.less'
+
 
 export default class TNavbar extends Component {
     render() {

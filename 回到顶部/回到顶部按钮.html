@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #oDiv {
+            width: 200px;
+            height: 5000px;
+            margin: 10px auto;
+            background-color: pink;
+        }
+
+        #btn {
+            width: 50px;
+            height: 50px;
+            background: url("../../images/backTop.gif") no-repeat center;
+            background-size: 100%;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="oDiv"></div>
+<button id="btn"></button>
+<script type="text/javascript" src="utils.js"></script>
+<script type="text/javascript">
+    var btn = document.getElementById('btn');
+    btn.onclick=function () {
+        clearInterval(this.timer);
+        var duration=utils.win('scrollTop');
+        var step=duration/20;
+        this.timer=setInterval(function () {
+            if(duration<=0){
+                utils.win('scrollTop',0);
+                clearInterval(btn.timer);
+                return;
+            }
+            utils.win('scrollTop',duration-=step);
+        },10)
+    }
+
+</script>
+
+</body>
+</html>
