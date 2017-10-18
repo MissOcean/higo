@@ -1,5 +1,7 @@
 import {combineReducers} from 'redux'
 import detail from './detail'
+import {routerReducer} from 'react-router-redux'
+
 let initState = {
     count: 0
 }
@@ -13,5 +15,6 @@ let reducer = (state = initState, action) => {
 }
 export default combineReducers({
     detail,
-    reducer
+    reducer,
+    router: routerReducer
 })

@@ -4,11 +4,12 @@ import {getProductDetail, getRcmdByProduct, login, register} from '../../../api/
 import actions from '../../../store/actions/detail'
 import './index.less'
 import Item from "../../../components/Item/index";
-import NavLink from "react-router-dom/es/NavLink";
+import {Link, NavLink} from "react-router-dom/";
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import {Route} from 'react-router-dom'
 import Carousel from "../Carousel/index";
-
+import {push} from 'react-router-redux'
+import CommentItem from "../../../components/CommentItem/index";
 
 @connect(
     state => state.detail,
@@ -41,14 +42,6 @@ export default class Product extends Component {
     }
 
     render() {
-        let style = {
-            position: 'fixed',
-            top: 0,
-            bottom: 0,
-            width: '100%',
-            backgroundColor: 'rgba(0,0,0,0.1)',
-            zIndex: 50
-        }
         let {listPicUrl, characteristicList, detailPicList, comments} = this.props.proInfo;
         let items = this.props.items;
         console.log(this.props)
@@ -69,8 +62,23 @@ export default class Product extends Component {
                 </div>
                 <div className="baseInfo">商品基本信息</div>
                 <div className="puchaseInfo" onClick={this.showMask}>购买指引</div>
-                <div className="comment"><NavLink to='/detail/comment'>商品评价</NavLink></div>
-                <div className="productParam">商品参数</div>
+                <div className="comment">
+                    <div className="comentHeader">
+                        <Link to='/detail/comment'>
+                            <span>用户评价(999+)</span>
+                            <div className="goodRate">
+                                <span>94.7%</span>
+                                <i className="icon-right iconfont"></i>
+                            </div>
+                        </Link>
+                    </div>
+                    {comments.length && comments.map((comment, idx) => (
+                        <CommentItem key={idx} comment={comment}/>
+                    ))}
+                </div>
+                <div className="productParam"
+                    onClick={()=>{this.props.test()}}
+                >商品参数</div>
                 <div className="productDetail">
                     {detailPicList.length > 0 && detailPicList.map((picUrl, idx) => (
                         <p key={idx} className="detailPic">

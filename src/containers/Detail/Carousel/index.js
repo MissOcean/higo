@@ -2,7 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import ReactSwipe from 'react-swipe';
 import './index.less'
+
 export default class Carousel extends Component {
+    constructor() {
+        super()
+        this.state = {index: 0}
+    }
+
     render() {
         let listPicUrl = this.props.listPicUrl
         let options = {
@@ -11,7 +17,7 @@ export default class Carousel extends Component {
             disableScroll: false,
             //每轮播一次会调用此回调方法并传入最新的索引
             callback: (index) => {
-                // console.log(index)
+                this.setState({index})
             }
         };
         return (
@@ -23,7 +29,9 @@ export default class Carousel extends Component {
                         ))
                     }
                 </ReactSwipe>}
-                <div className="container"></div>
+                <div className="dots">
+                    <span>{this.state.index+1}</span><span className="separator">/</span><span>5</span>
+                </div>
             </div>
         )
     }

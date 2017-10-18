@@ -7,7 +7,9 @@ import Topic from "./Topic/index";
 import Category from "./Category/index";
 import User from "./User/index";
 import BNavBar from "../components/BNavbar/index";
-//import {ConnectedRouter} from 'react-router-redux'
+import {ConnectedRouter} from 'react-router-redux'
+import createHashHistory from 'history/createHashHistory'
+const history = createHashHistory()
 import '../api/rem'
 import '../common/style/reset.less'
 import TNavbar from "../components/TNavbar/index";
@@ -16,7 +18,7 @@ import Detail from "./Detail/index";
 export default class App extends Component {
     render() {
         return (
-            <Router>
+            <ConnectedRouter history={history}>
                 <div>
                     <Switch>
                         <Route exact path="/" component={Home}></Route>
@@ -27,7 +29,7 @@ export default class App extends Component {
                         <Route path="/detail" component={Detail}></Route>
                     </Switch>
                 </div>
-            </Router>
+            </ConnectedRouter>
         )
     }
 }
