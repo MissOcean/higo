@@ -7,7 +7,7 @@ import CommentItem from "../../../components/CommentItem/index";
 import {upLoadMore, goBackToTop} from "../../../api/utils"
 
 @connect(
-    state => state.detail,
+    state => ({...state.detail, ...state.router}),
     actions
 )
 export default class Comment extends Component {
@@ -17,9 +17,10 @@ export default class Comment extends Component {
     }
 
     componentWillMount() {
-        this.props.getProductGoodRate(1127003)
-        this.props.getCommentTags(1127003)
-        !this.props.allComments.length && this.props.getCommentByTag(this.props.curTag, 1127003, 1)
+        let id = this._productId = this.props.match.params.productId
+        this.props.getProductGoodRate(id)
+        this.props.getCommentTags(id)
+        !this.props.allComments.length && this.props.getCommentByTag(this.props.curTag, id, 1)
     }
 
     toggleTags = () => {
@@ -29,7 +30,7 @@ export default class Comment extends Component {
         //console.log(this.timer)
         if (this.timer) clearInterval(this.timer)
         this.timer = setTimeout(() => {
-            this.props.getCommentByTag(tag, 1127003, 1)
+            this.props.getCommentByTag(tag, id, 1)
         }, 200)
     }
 
@@ -37,7 +38,7 @@ export default class Comment extends Component {
         upLoadMore(() => {
             let {page, totalPage} = this.props.comments.pagination
             if (page === totalPage) return
-            this.props.getCommentByTag(this.props.curTag, 1127003, this.props.comments.pagination.page + 1)
+            this.props.getCommentByTag(this.props.curTag, this._productId, this.props.comments.pagination.page + 1)
         })
         window.goTop = goBackToTop;
     }

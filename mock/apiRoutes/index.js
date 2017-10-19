@@ -81,17 +81,37 @@ apiRoutes.get(configs.productDetailRoute, (req, res) => {
         params: req.query
     }).then(response => {
         let jsonData = response.data;
-        let {itemDetail, characteristicList, listPicUrl, comments} = jsonData.item
+        let commentCount = jsonData.commentCount
+        let {
+            itemDetail, characteristicList, retailPrice, simpleDesc, skuSpecList,
+            listPicUrl, comments, attrList, name, itemTagList, remark
+        } = jsonData.item
         //detailHtml格式：'src="https://xxx" _src="https://yyy" style=""'
         let reg = /http[^"]*(?="\s_src)/g
         let detailPicList = itemDetail.detailHtml.match(reg)
         listPicUrl = [].concat(listPicUrl)
+        itemTagList = itemTagList.map((tag) => tag.name);
+        remark = remark && remark.remarkTitle
         for (let k in itemDetail) {
             if (k !== 'detailHtml') {
                 listPicUrl.push(itemDetail[k])
             }
         }
-        res.json({characteristicList, listPicUrl, detailPicList, comments})
+        let skuList = skuSpecList.map(sku => {
+            let {name, skuSpecValueList} = sku;
+            let skuItems = skuSpecValueList.map(skuItem => {
+                let {picUrl, value} = skuItem
+                return {picUrl, value}
+            })
+            return {name,skuItems}
+        })
+        //res.json(jsonData)
+        res.json({
+            characteristicList, listPicUrl, name,
+            retailPrice, simpleDesc,skuList,
+            attrList, detailPicList, comments,
+            commentCount, itemTagList, remark
+        })
     }).catch(e => console.log(e))
 })
 //根据商品获取推荐

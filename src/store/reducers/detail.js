@@ -6,9 +6,11 @@ let initState = {
         listPicUrl: [],
         characteristicList: [],
         detailPicList: [],
-        comments: []
+        comments: [],
+        commentCount: 0,
+        attrList: []
     },
-    goodRate: {},
+    goodRate: '',
     commentTags: [],
     comments: {
         pagination: {}
@@ -28,9 +30,11 @@ let detail = (state = initState, action) => {
         case types.GET_COMMENT_TAGS:
             return {...state, commentTags: action.commentTags}
         case types.SWITCH_COMMENT:
-            return {...state, comments: action.comments,
+            return {
+                ...state, comments: action.comments,
                 isFetchComment: false,
-                allComments: action.comments.result, curTag: action.curTag,}
+                allComments: action.comments.result, curTag: action.curTag,
+            }
         case types.GET_COMMENT_OVER:
             return {
                 ...state, comments: action.comments,

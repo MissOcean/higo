@@ -19,6 +19,7 @@ export default {
     getProductInfo(id) {
         return (dispatch, getState) => {
             getProductDetail(id).then(res => {
+                //console.log(res);
                 dispatch({type: types.GET_PRO_INFO, proInfo: res})
             }).catch(e => {
                     debugger
@@ -28,6 +29,7 @@ export default {
     },
     getProductGoodRate(id) {
         return (dispatch, getState) => {
+            if (getState().detail.goodRate) return
             getProductGoodRate(id).then(res => {
                 dispatch({type: types.GET_PRO_GOODRATE, goodRate: res.data})
             }).catch(e => {
