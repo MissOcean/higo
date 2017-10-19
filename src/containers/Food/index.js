@@ -8,7 +8,7 @@ import More from "./More/index";
 import GoToTop from "./GoToTop/index";
 import BNavBar from "../../components/BNavbar/index";
 import {getTopicData} from '../../api/getData';
-import {upLoadMore,downRefresh} from '../../utils/index'
+import {upLoadMore, downRefresh} from '../../utils/index'
 
 
 export default class Food extends Component {
@@ -18,22 +18,31 @@ export default class Food extends Component {
     }
 
     componentWillMount() {
+        this._isMounted = true
         getTopicData().then((res) => {
-            this.setState({data: res.data})
+            this._isMounted && this.setState({data: res.data})
         })
     }
 
-    componentDidUpdate() {
+    componentWillUnmount() {
+        this._isMounted = false
+    }
 
+    componentDidUpdate() {
         this.state.data && upLoadMore(() => {
             getTopicData().then((res) => {
-                this.setState({data: {...this.state.data, findMore: [...this.state.data.findMore, ...res.data.findMore]}})
+                this._isMounted && this.setState({
+                    data: {
+                        ...this.state.data,
+                        findMore: [...this.state.data.findMore, ...res.data.findMore]
+                    }
+                })
                 setTimeout(() => {
                     console.log(this.state.data);
                 }, 1000)
             })
         })
-        this.state.data&&downRefresh(this.refs.foodContainer,()=>{
+        this.state.data && downRefresh(this.refs.foodContainer, () => {
 
         })
     }

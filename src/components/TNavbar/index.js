@@ -7,7 +7,7 @@ export default class TNavbar extends Component {
         return (
             <div className="t_navbar">
                 <div className="tabs">
-                    <NavLink to="/home">
+                    <NavLink to="/">
                         <i className="iconfont icon-home"></i>
                     </NavLink>
                     <NavLink to="/search">
