@@ -12,11 +12,12 @@ export default class Item extends Component {
             retailPrice,
             simpleDesc,
             productPlace,
-            listPicUrl
+            listPicUrl,
+            id
         } = this.props.itemInfo;
         return (
             <div className="item">
-                <Link tag="div" to="/detail/product">
+                <Link tag="div" to={`/detail/${id}`}>
                     <div className="picPanel">
                         {!productPlace && colorNum ? <div className="label">{colorNum}色可选</div> : null}
                         {productPlace && <div className="label">{productPlace}</div>}
@@ -30,5 +31,6 @@ export default class Item extends Component {
             </div>
         )
     }
+
 
 }

@@ -14,6 +14,7 @@ import '../api/rem'
 import '../common/style/reset.less'
 import TNavbar from "../components/TNavbar/index";
 import Detail from "./Detail/index";
+import SubCateList from "./SubCateList/index";
 
 export default class App extends Component {
     render() {
@@ -27,6 +28,7 @@ export default class App extends Component {
                         <Route path="/user" component={User}></Route>
                         <Route path="/category" component={Category}></Route>
                         <Route path="/detail" component={Detail}></Route>
+                        <Route path="/subCateList" component={SubCateList}/>
                     </Switch>
                 </div>
             </ConnectedRouter>
