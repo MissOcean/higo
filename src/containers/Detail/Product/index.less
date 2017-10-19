@@ -1,0 +1,288 @@
+.container {
+  position: relative;
+  margin-bottom: 1rem;
+  img {
+    display: block;
+  }
+  div {
+    font-size: .26rem;
+  }
+  .puchaseNav {
+    position: fixed;
+    bottom: 0;
+    height: 1rem;
+    display: flex;
+    width: 100%;
+    background-color: #fff;
+    border-top: .01rem solid #ededed;
+    z-index: 10;
+    text-align: center;
+    span {
+      line-height: 1rem;
+      width: 0;
+      font-size: .26rem;
+    }
+    .service {
+      flex-grow: 1;
+      border-right: .01rem solid #eee;
+    }
+    .puchaseNow {
+      flex-grow: 2;
+    }
+    .addToCart {
+      flex-grow: 2;
+      background-color: #b4282d;
+      color: #fff;
+    }
+  }
+  .characterList {
+    display: flex;
+    height: .8rem;
+    padding: .24rem .3rem;
+    background-color: #f9f9f9;
+    .characterItem {
+      display: flex;
+      width: 0;
+      flex-grow: 1;
+      align-items: center;
+      .picPanel {
+        width: .7rem;
+        height: .7rem;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .descPanel {
+        display: flex;
+        flex-direction: column;
+        font-size: .26rem;
+        flex-grow: 1;
+        justify-content: space-around;
+        height: 100%;
+      }
+    }
+  }
+  .baseInfo {
+    background-color: #fff;
+    height: 2rem;
+    padding: .4rem 0 .4rem .3rem;
+    margin-bottom: .2rem;
+    display: flex;
+    .info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      .name {
+        font-size: .36rem;
+        margin-bottom: .05rem;
+      }
+      .simpleDesc {
+        font-size: .26rem;
+        line-height: 1;
+        color: #7f7f7f;
+      }
+      .retailPrice {
+        font-size: .46rem;
+        color: #B4282D;
+        font-weight: 700;
+      }
+      .tags {
+        padding-top: .2rem;
+        .tag {
+          float: left;
+          line-height: .36rem;
+          height: .36rem;
+          padding: 0 .08rem;
+          font-size: .24rem;
+          border: .01rem solid #f48f18;
+          border-radius: .05rem;
+          color: #f48f18;
+          margin-right: .16rem;
+        }
+      }
+    }
+    .commentNum {
+      width: 1.5rem;
+      border-left: .01rem dashed #ddd;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .num {
+        font-weight: 700;
+        font-size: .36rem;
+        line-height: 1;
+        margin-bottom: .1rem;
+        color: #B4282D;
+
+      }
+      .com {
+        color: #B4282D;
+        line-height: 1;
+        margin-bottom: .2rem;
+      }
+      .more {
+        border: .01rem solid #DDD;
+        border-radius: .02rem;
+        text-align: center;
+        font-size: .22rem;
+        height: .4rem;
+        width: 1rem;
+        line-height: .4rem;
+      }
+    }
+  }
+  .puchaseInfo {
+    padding-left: .3rem;
+    background-color: #fff;
+    margin-bottom: .2rem;
+    i {
+      color: #aaa;
+    }
+    span {
+      font-size: .28rem;
+    }
+    .choose, .remark, .promotion, .service {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: .3rem;
+      color: #333;
+      font-size: .28rem;
+      border-bottom: 1px solid #d9d9d9;
+    }
+    .choose, .remark, .promotion, .service {
+      height: 1rem;
+    }
+    .choose {
+
+    }
+    .remark {
+    }
+    .promotion {
+
+    }
+    .service {
+
+    }
+  }
+  .comment {
+    padding-left: .3rem;
+    background-color: #fff;
+    margin-bottom: .2rem;
+    .comentHeader {
+      border-bottom: 1px solid #d9d9d9;
+      margin-right: .3rem;
+      height: .9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .goodRate {
+        display: flex;
+        align-items: center;
+        .icon-right {
+          color: #aaa;
+        }
+      }
+    }
+  }
+  .productParam {
+    //height: 5rem;
+    background-color: #fff;
+    padding: .3rem;
+    .titile {
+      padding: .4rem 0 .24rem 0;
+    }
+    .attr {
+      display: flex;
+      padding: .1rem 0;
+      border-top: .01rem dashed #ddd;
+      line-height: .45rem;
+      .attrName {
+        font-size: .24rem;
+        color: #999;
+        width: 1.68rem;
+      }
+      .attrValue {
+        font-size: .24rem;
+        flex-grow: 1;
+      }
+    }
+  }
+  .productDetail {
+    .detailPic {
+      width: 100%;
+      /*height: 2rem;*/
+    }
+  }
+  .recommend {
+    background-color: #fff;
+    text-align: left;
+    padding-bottom: .5rem;
+    .header {
+      height: 1.4rem;
+      line-height: 1.4rem;
+      text-align: center;
+      font-size: .32rem;
+    }
+  }
+  .mask {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #FFF;
+    padding: .3rem .3rem 1.3rem;
+    .selectInfo {
+      height: 1.7rem;
+      padding-bottom: .4rem;
+      display: flex;
+      img {
+        display: block;
+        height: 1.7rem;
+        width: 1.7rem;
+        background-color: #f4f4f4;
+        border-radius: .05rem;
+      }
+      .selectPrice {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: .24rem;
+        flex: 1;
+        .price {
+          font-size: .32rem;
+          margin-bottom: .1rem;
+        }
+        .selected {
+          font-size: .28rem;
+        }
+      }
+    }
+    .skuList {
+      .sku {
+        .header {
+          padding-bottom: .24rem;
+        }
+        .skuItemList {
+          display: flex;
+          flex-wrap: wrap;
+          padding-bottom: .3rem;
+          .skuItem {
+            margin: 0 .24rem .16rem 0;
+            padding: 0 .34rem;
+            border: .01rem solid;
+            color: #333;
+            height: .6rem;
+            font-size: .24rem;
+            line-height: .6rem;
+          }
+          .skuItem.active {
+            border-color: #b4282d;
+            color: #b4282d;
+          }
+        }
+      }
+    }
+
+  }
+}
+

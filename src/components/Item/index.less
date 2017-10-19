@@ -1,0 +1,65 @@
+.item {
+  display: inline-block;
+  width: 3.45rem;
+  margin: 0 0 .2rem .2rem;
+  box-sizing: border-box;
+  text-align: left;
+  background: #f4f4f4;
+  /*这里设置picPanel背景路由切换会无效，所以设置item背景*/
+  .picPanel {
+    /*background: #f4f4f4;*/
+    position: relative;
+    border-radius: .03rem;
+    .label {
+      text-align: center;
+      color: #b4a078;
+      position: absolute;
+      transform: scale(0.9);
+      margin: .08rem 0 0 .15rem;
+      /*left: .15rem;
+      top: .15rem;*/
+      width: .3rem;
+      padding: .12rem 0;
+      border: .5px solid #b4a078;
+      border-radius: .05rem;
+      font-size: .17rem;
+      line-height: 1.1;
+      font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+    }
+    img {
+      height: 3.45rem;
+      width: 3.45rem;
+      display: block;
+      //底部有留白，设置为block
+      background-color: transparent;
+      //div.panel背景颜色不生效
+    }
+
+  }
+  p {
+    /*文字超出一行缩略*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .desc {
+    height: .7rem;
+    padding: .2rem;
+    box-sizing: border-box;
+    color: #b4a078;
+    background: #F1ECE2;
+    font-size: .24rem;
+  }
+  .name {
+    padding: .2rem;
+    font-size: 0.26rem;
+    background-color: #fff;
+    color: #333
+  }
+  .price {
+    padding: 0 .2rem;
+    color: #b4282d;
+    font-size: .28rem;
+    background-color: #fff;
+  }
+}
