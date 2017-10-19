@@ -4,19 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open"
+    "dev": "webpack-dev-server --open --port 8090"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
     "body-parser": "^1.18.2",
     "connect-mongo": "^2.0.0",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
     "es6-promise": "^4.1.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "history": "^4.7.2",
+    "jquery": "^3.2.1",
     "mongoose": "^4.12.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",

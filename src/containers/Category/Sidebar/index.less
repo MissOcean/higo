@@ -4,8 +4,9 @@
   top: .86rem;
   bottom: 1rem;
   z-index: 4;
-  width: 1.5rem;
+  width: 1.6rem;
   border-right: 0.01rem solid #ddd;
+  overflow-y: scroll;
   ul{
     padding: .2rem 0;
     width:100%;
@@ -15,17 +16,28 @@
       height: .6rem;
       text-align: center;
       border: none;
-      margin-top: .1rem;
+      margin-top: .2rem;
       a {
         display: block;
         color: #666;
-        font-size: .24rem;
+        font-size: .26rem;
         line-height: .6rem;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
         &.active {
-          color: #188ae4;
+          font-size: .36rem;
+          color: #ab2b2b;
+          position: relative;
+        }
+        &.active:before{
+          content: ' ';
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          width: .08rem;
+          background-color: #ab2b2b;
         }
 
       }
