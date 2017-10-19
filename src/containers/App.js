@@ -21,6 +21,7 @@ import Detail from "./Detail/index";
 import SubCateList from "./SubCateList/index";
 import Protected from "../components/Protected/index";
 
+
 export default class App extends Component {
     render() {
         return (
