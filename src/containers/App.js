@@ -11,19 +11,18 @@ import BNavBar from "../components/BNavbar/index";
 import '../api/rem'
 import '../common/style/reset.less'
 import TNavbar from "../components/TNavbar/index";
+
 export default class App extends Component {
     render() {
         return (
             <Router>
-                <div>
-                    <Switch>
-                        <Route exact path="/" component={Home}></Route>
-                        <Route path="/topic" component={Topic}></Route>
-                        <Route path="/cart" component={Cart}></Route>
-                        <Route path="/user" component={User}></Route>
-                        <Route path="/category" component={Category}></Route>
-                    </Switch>
-                </div>
+                <Switch>
+                    <Route exact path="/" component={Home}></Route>
+                    <Route path="/food" component={Food}></Route>
+                    <Route path="/cart" component={Cart}></Route>
+                    <Route path="/user" component={User}></Route>
+                    <Route path="/category" component={Category}></Route>
+                </Switch>
             </Router>
         )
     }

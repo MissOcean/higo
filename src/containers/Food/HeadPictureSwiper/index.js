@@ -7,10 +7,10 @@ export default class HeadPictureSwiper extends Component {
     componentDidMount() {
         new Swiper('.headPictureSwiper', {
             autoplay: 2000,
-            speed:700,//可选选项，自动滑动
+            speed: 700,//可选选项，自动滑动
             effect: 'cube',
             loop: true,
-            autoplayDisableOnInteraction : false,
+            autoplayDisableOnInteraction: false,
             cube: {
                 slideShadows: false,
                 shadow: false,
@@ -20,11 +20,11 @@ export default class HeadPictureSwiper extends Component {
             // slidesPerView: 2,
             // centeredSlides: true,
             // coverflow: {
-                // rotate: 30,
-                // stretch: 10,
-                // depth: 60,
-                // modifier: 2,
-                // slideShadows : false
+            // rotate: 30,
+            // stretch: 10,
+            // depth: 60,
+            // modifier: 2,
+            // slideShadows : false
             // }
         })
     }
@@ -34,19 +34,16 @@ export default class HeadPictureSwiper extends Component {
             <div>
                 <div className="swiper-container headPictureSwiper">
                     <div className="swiper-wrapper">
-                        <div className="swiper-slide">
-                            <img
-                                src="https://yanxuan.nosdn.127.net/74373b06b38aa134e2df9f8d017370b6.jpg?imageView&quality=75"
-                                alt=""/>
-                        </div>
-                        <div className="swiper-slide">
-                            <img
-                                src="https://yanxuan.nosdn.127.net/48f7fc275398b6cb48aa670e896f6dd6.jpg?imageView&quality=75"
-                                alt=""/>
-                        </div>
-                        <div className="swiper-slide"><img
-                            src="https://yanxuan.nosdn.127.net/c646886fdf9abe1c69c4267380137ccc.jpg?imageView&quality=75"
-                            alt=""/></div>
+                        {
+                            this.props.banner.map((item, index) => (
+                                <div className="swiper-slide" key={index}>
+                                    <a href={item.schemeUrl}>
+                                        <img src={item.picUrl}/>
+                                    </a>
+
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

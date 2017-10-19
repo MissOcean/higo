@@ -10,7 +10,7 @@ export default class BNavBar extends Component {
                     <i className="iconfont icon-home"></i>
                     <span>首页</span>
                 </NavLink>
-                <NavLink to='/topic'>
+                <NavLink to='/food'>
                     <i className="iconfont icon-hot"></i>
                     <span>专题</span>
                 </NavLink>

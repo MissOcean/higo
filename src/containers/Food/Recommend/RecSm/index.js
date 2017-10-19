@@ -9,15 +9,15 @@ export default class RecSm extends Component {
                     <div className="topInfo">
                         <div className="author">
                             <div className="avatar">
-                                <img src="https://yanxuan.nosdn.127.net/15082257347571029.png?imageView&quality=75&thumbnail=48y48" alt=""/>
+                                <img src={this.props.recommendTwo.avatar} alt=""/>
                             </div>
-                            <div className="nickname">服装组：小服</div>
+                            <div className="nickname">{this.props.recommendTwo.nickname}</div>
                         </div>
-                        <div className="line1">给牛仔加点火山岩</div>
-                        <div className="line2">为了拒绝臃肿，不少人秋冬穿衣，会稍稍牺牲温度。如何让保暖和有型可以兼得，严选一直...</div>
+                        <div className="line1">{this.props.recommendTwo.title}</div>
+                        <div className="line2">{this.props.recommendTwo.subTitle}</div>
                     </div>
                     <div className="minorPic">
-                        <div className="pic">
+                        <div className="pic" style={{backgroundImage:`url(${this.props.recommendTwo.picUrl})`}}>
 
                         </div>
                     </div>
