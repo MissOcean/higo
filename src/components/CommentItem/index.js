@@ -12,7 +12,7 @@ export default class CommentItem extends Component {
         return (
             <div className="commentItem">
                 <div className="userInfo">
-                    {comment.frontUserAvatar && <div className="userAvatar">
+                    {!comment.frontUserAvatar && <div className="userAvatar">
                         <i className="iconfont icon-people"></i>
                     </div>}
                     {comment.frontUserAvatar && <img className="userAvatar" src={comment.frontUserAvatar}/>}

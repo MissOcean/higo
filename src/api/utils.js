@@ -52,14 +52,17 @@ export function upLoadMore(callback) {
 }
 
 //回到顶部
-export function goBackToTop(duration = 400) {
+export function goBackToTop(callback, duration = 400) {
     let html = document.documentElement;
     let inteval = 20,
         distance = html.scrollTop * inteval / duration;
 
     let timer = setInterval(() => {
         html.scrollTop -= distance
-        if (html.scrollTop <= 0) clearInterval(timer)
+        if (html.scrollTop <= 0) {
+            clearInterval(timer);
+            typeof callback == 'function' && callback()
+        }
     }, inteval)
     return timer;
 }

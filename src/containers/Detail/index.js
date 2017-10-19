@@ -12,8 +12,8 @@ export default class Detail extends Component {
             <div className="page">
                 <TNavbar/>
                 <Route exact path="/detail" component={Product}/>
-                <Route path="/detail/product" component={Product}/>
-                <Route path="/detail/comment" component={Comment}/>
+                <Route exact path="/detail/:productId" component={Product}/>
+                <Route path="/detail/:productId/comment" component={Comment}/>
             </div>
         )
     }
