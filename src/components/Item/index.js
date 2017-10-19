@@ -16,7 +16,7 @@ export default class Item extends Component {
             id
         } = this.props.itemInfo;
         return (
-            <div className="item">
+            <div className="productItem">
                 <Link tag="div" to={`/detail/${id}`}>
                     <div className="picPanel">
                         {!productPlace && colorNum ? <div className="label">{colorNum}色可选</div> : null}

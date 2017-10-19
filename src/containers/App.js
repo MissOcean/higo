@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from "./Home/index";
 import Cart from "./Cart/index";
-import Topic from "./Topic/index";
+import Food from "./Food/index";
 import Category from "./Category/index";
 import User from "./User/index";
 import Login from "../containers/Login/index";
@@ -29,7 +29,7 @@ export default class App extends Component {
                 <div>
                     <Switch>
                         <Route exact path="/" component={Home}></Route>
-                        <Route path="/topic" component={Topic}></Route>
+                        <Route path="/topic" component={Food}></Route>
                         <Route path="/cart" component={Cart}></Route>
                         <Protected path="/user" component={User}/>
                         <Route path="/category" component={Category}></Route>
