@@ -28,4 +28,4 @@ app.use(session({
     secret: 'higo'
 }));
 app.use('/api', apiRoutes)
-app.listen(9090)
+app.listen(9090);
