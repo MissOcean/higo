@@ -1,5 +1,6 @@
 import {combineReducers} from 'redux'
 import detail from './detail'
+import session from './session'
 import {routerReducer} from 'react-router-redux'
 import *as types from '../action-types';
 
@@ -25,6 +26,7 @@ let cateList = (state = initState, action) => {
 }
 export default combineReducers({
     detail,
+    session,
     router: routerReducer,
     cateList
 })

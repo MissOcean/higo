@@ -53,7 +53,13 @@ export function upLoadMore(callback) {
 
 //回到顶部
 export function goBackToTop(callback, duration = 400) {
+
     let html = document.documentElement;
+    if (duration == 0) {
+        html.scrollTop = 0;
+        typeof callback == 'function' && callback()
+        return
+    }
     let inteval = 20,
         distance = html.scrollTop * inteval / duration;
 

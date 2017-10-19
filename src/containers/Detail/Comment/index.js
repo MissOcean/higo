@@ -30,7 +30,7 @@ export default class Comment extends Component {
         //console.log(this.timer)
         if (this.timer) clearInterval(this.timer)
         this.timer = setTimeout(() => {
-            this.props.getCommentByTag(tag, id, 1)
+            this.props.getCommentByTag(tag, this._productId, 1)
         }, 200)
     }
 

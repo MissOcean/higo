@@ -13,7 +13,9 @@ export const SWITCH_COMMENT = 'SWITCH_COMMENT'
 export const GET_COMMENT = 'GET_COMMENT'
 //获取评论完成
 export const GET_COMMENT_OVER = 'GET_COMMENT_OVER'
-
+/* 分类页 */
 export const GET_CATE_LIST = "get_cate_list";
 export const GET_SUB_LIST = "get_sub_list";
 
+/* 写入会话信息 */
+export const SET_SESSION_INFO = "SET_SESSION_INFO";

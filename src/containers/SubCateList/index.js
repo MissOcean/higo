@@ -10,6 +10,7 @@ import SubCateNav from "../../components/SubCateNav/index";
 //     state => state.cateList,
 //     actions
 // )
+import {goBackToTop} from "../../api/utils"
 
 @connect((state) => {
     return {
@@ -50,6 +51,7 @@ export default class SubCateList extends Component {
 
     render() {
         console.log(this.props);
+        goBackToTop(null,0)
         let {category, itemList} = this.props.categoryItems;
         return (
             <div className="con">

@@ -9,7 +9,7 @@ router.post('/login', (req, res) => {
         req.session.user = user;
         res.json({code:0,success:'登陆成功',user})
     }else {
-        res.json({code:1,error:'登录失败!'});
+        res.json({code:1,error:'账号不存在或密码错误'});
     }
 })
 router.post('/register', function (req, res) {
@@ -21,7 +21,7 @@ router.post('/register', function (req, res) {
     } else {
         users.push(user);
         //后台向前台返回数据的时候需要一个编码，0表示成功，1表示失败
-        res.json({code: 0, success: '用户注册成功'});
+        res.json({code: 0, success: '用户注册成功',user});
     }
 });
 module.exports = router;
