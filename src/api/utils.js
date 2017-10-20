@@ -90,6 +90,7 @@ export function horizontalMove(options) {
         let wrapperWidth = $(wrapEle).width(); //外部框架的宽度
 
         function touchStart(e) {//触摸开始
+            console.log('start')
             aboveX = parseInt($(innerEle).css("left"));
             // e.preventDefault();//防止点击无效
             let touch = e.touches[0];
@@ -98,6 +99,7 @@ export function horizontalMove(options) {
         }
 
         function touchMove(e) {//滑动
+            console.log('move')
             e.preventDefault();
             let touch = e.touches[0];
             x = touch.pageX - startX;//滑动的距离
@@ -105,6 +107,7 @@ export function horizontalMove(options) {
         }
 
         function touchEnd(e) {//手指离开屏幕
+            console.log('end')
             // aboveX = parseInt($(innerEle).css("left"));//touch结束后记录内部滑块滑动的位置 在全局变量中体现 一定要用parseInt()将其转化为整数字;
             if (x > 0 && aboveX > 0) {//当滑动到最顶端时候不能再网上滑动
                 //inner.style.top=0;

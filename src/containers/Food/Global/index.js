@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import './index.less'
+import BackToTop from "../../../components/BackToTop/index";
 
 
 export default class Global extends Component {
     render() {
         return (
-            <div className="recommend">
+            <div className="grobal_recommend">
                 <div className="recommend-title">{this.props.global.nickname}</div>
                 <a className="recommend-main">
                     <div className="recommend-main-pic"
@@ -21,7 +22,7 @@ export default class Global extends Component {
                         </div>
                     </div>
                 </a>
-
+                <BackToTop/>
             </div>
         )
     }

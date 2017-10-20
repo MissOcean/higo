@@ -11,6 +11,7 @@ import SubCateNav from "../../components/SubCateNav/index";
 //     actions
 // )
 import {goBackToTop} from "../../api/utils"
+import BackToTop from "../../components/BackToTop/index";
 
 @connect((state) => {
     return {
@@ -56,6 +57,7 @@ export default class SubCateList extends Component {
         return (
             <div className="con">
                 <TNavbar/>
+                <BackToTop/>
                 <SubCateNav
                     subCateList={this.props.subCateList}
                     // categoryId={category.id}

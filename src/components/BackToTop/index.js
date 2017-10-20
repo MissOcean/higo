@@ -12,7 +12,7 @@ export default class BackToTop extends Component {
         //console.log(this.isScrolling)
         if (this.isScrolling) return
         this.isScrolling = true;
-        goBackToTop(() => {
+        this._timer = goBackToTop(() => {
             this.isScrolling = false;
         })
     }
@@ -41,15 +41,15 @@ export default class BackToTop extends Component {
 
     componentWillUnmount() {
         document.removeEventListener('scroll', this.handleScroll)
-        clearInterval(this.timer)
+        clearInterval(this._timer)
     }
 
     render() {
-        let style = this.state.show ? {display: 'block'} : {display: 'none'}
         return (
-            <div className="backTop" onClick={this.handleClick} style={style}>
-                <i className="iconfont icon-up"></i>
-            </div>
+            this.state.show ? (
+                <div className="backTop" onClick={this.handleClick}>
+                    <i className="iconfont icon-up"></i>
+                </div> ) : <div></div>
         )
     }
 }

@@ -46,14 +46,19 @@ apiRoutes.get(configs.cateItemRoute, (req, res) => {
     axios.get(url, {
         params: req.query
     }).then(response => {
-        let curCategoryId = response.data.data.categoryL1.id;
-        let subCateList = response.data.data.categoryL2List;
-        let categoryItems = response.data.data.categoryItems;
-        subCateList = subCateList.map(subCategory => {
-            let {name, bannerUrl, id} = subCategory
-            return {name, bannerUrl, id}
-        })
-        res.json({subCateList, curCategoryId, categoryItems})
+        if (req.query.subCategoryId) {
+            let curCategoryId = response.data.data.categoryL1.id;
+            let subCateList = response.data.data.categoryL2List;
+            let categoryItems = response.data.data.categoryItems;
+            subCateList = subCateList.map(subCategory => {
+                let {name, bannerUrl, id} = subCategory
+                return {name, bannerUrl, id}
+            })
+            res.json({subCateList, curCategoryId, categoryItems})
+        } else {
+            res.json(response.data)
+        }
+
     }).catch(e => console.log(e))
 })
 //获取分类页分类列表
@@ -103,12 +108,12 @@ apiRoutes.get(configs.productDetailRoute, (req, res) => {
                 let {picUrl, value} = skuItem
                 return {picUrl, value}
             })
-            return {name,skuItems}
+            return {name, skuItems}
         })
         //res.json(jsonData)
         res.json({
             characteristicList, listPicUrl, name,
-            retailPrice, simpleDesc,skuList,
+            retailPrice, simpleDesc, skuList,
             attrList, detailPicList, comments,
             commentCount, itemTagList, remark
         })

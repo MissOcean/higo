@@ -11,6 +11,10 @@ import BNavBar from "../../components/BNavbar/index";
     actions
 )
 export default class User extends Component {
+    componentWillMount() {
+        console.log(this.props);
+    }
+
     render() {
         return (
             <div className="profile">
@@ -55,6 +59,8 @@ export default class User extends Component {
                     <li><i className="iconfont icon-shezhi"><span>设置</span></i></li>
                     <li><i className="iconfont icon-gengduo"><span>更多</span></i></li>
                 </ul>
+
+                <div className="logout" onClick={this.props.logout}>退出登录</div>
 
             </div>
         )

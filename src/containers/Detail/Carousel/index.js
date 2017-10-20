@@ -18,10 +18,11 @@ export default class Carousel extends Component {
             //每轮播一次会调用此回调方法并传入最新的索引
             callback: (index) => {
                 this.setState({index})
+                typeof this.props.callback == 'function' && this.props.callback(index)
             }
         };
         return (
-            <div className="swiper">
+            <div className="swiper" style={this.props.style}>
                 {listPicUrl.length > 0 && <ReactSwipe swipeOptions={options}>
                     {
                         listPicUrl.map((imgUrl, idx) => (
@@ -29,9 +30,9 @@ export default class Carousel extends Component {
                         ))
                     }
                 </ReactSwipe>}
-                <div className="dots">
-                    <span>{this.state.index+1}</span><span className="separator">/</span><span>5</span>
-                </div>
+                {this.props.hasDots && <div className="dots">
+                    <span>{this.state.index + 1}</span><span className="separator">/</span><span>5</span>
+                </div>}
             </div>
         )
     }

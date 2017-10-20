@@ -5,7 +5,7 @@ import RecSm from "./RecSm/index";
 export default class Recommend extends Component {
     render() {
         return (
-            <div className="recommend">
+            <div className="more_recommend">
                 <div className="recommend-title">{this.props.recommendOne.typeName}</div>
                 <a className="recommend-main">
                     <div className="recommend-main-pic"

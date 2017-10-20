@@ -1,5 +1,7 @@
 /* 数据接口 */
 import axios from 'axios';
+//跨域默认不会携带cookie，需设置withCredentials为true
+axios.defaults.withCredentials = true
 
 //home-recommend
 export function getRecommendData() {
@@ -115,13 +117,35 @@ export function getTopicData() {
 //登陆注册
 export function login(user) {
     const url = 'http://localhost:9090/login'
-    return axios.post(url,user).then(res => {
+    return axios.post(url, user).then(res => {
         return Promise.resolve(res.data)
     })
 }
+
 export function register(user) {
     const url = 'http://localhost:9090/register'
-    return axios.post(url,user).then(res => {
+    return axios.post(url, user).then(res => {
+        return Promise.resolve(res.data)
+    })
+}
+
+export function logout() {
+    const url = 'http://localhost:9090/logout'
+    return axios.get(url).then(res => {
+        return Promise.resolve(res.data)
+    })
+}
+
+export function fetchLoginStatus() {
+    const url = 'http://localhost:9090/loginState'
+    return axios.get(url).then(res => {
+        return Promise.resolve(res.data)
+    })
+}
+
+export function modifyCartList(user) {
+    const url = 'http://localhost:9090/modifyCartList'
+    return axios.post(url, user).then(res => {
         return Promise.resolve(res.data)
     })
 }

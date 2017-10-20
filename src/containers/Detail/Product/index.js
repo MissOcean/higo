@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {getProductDetail, getRcmdByProduct, login, register} from '../../../api/getData'
 import actions from '../../../store/actions/detail'
+import session from '../../../store/actions/session'
 import './index.less'
 import Item from "../../../components/Item/index";
 import {Link, NavLink} from "react-router-dom/";
@@ -12,10 +13,11 @@ import {push} from 'react-router-redux'
 
 import CommentItem from "../../../components/CommentItem/index";
 import BackToTop from "../../../components/BackToTop/index";
+import MIput from "../MIput/index";
 
 @connect(
-    state => state.detail,
-    actions
+    state => ({...state.detail, ...state.session}),
+    {...actions, ...session}
 )
 
 
@@ -26,6 +28,7 @@ export default class Product extends Component {
             showMask: false,
             selected: {},
             selectedArry: [],
+            count: 1,
             selectedPic: null
         }
 
@@ -78,6 +81,96 @@ export default class Product extends Component {
         this.setState({...this.state, selected, selectedArry, selectedPic})
     }
     addToCart = () => {
+        /*{
+            "img": "http://yanxuan.nosdn.127.net/7520b0d06f83bcede00f2c8c883eda43.png?imageView&amp;thumbnail=160x0&amp;quality=75",
+            "title": "升级款柔软保暖羽绒被",
+            "details": "220*240cm碧玺色+白色 1300g",
+            "price": 1049.00,
+            "count": 1,
+            "checked": true
+        }*/
+        if (!this.state.showMask) {
+            this.toggleMask()
+            return
+        }
+        if (this.state.selectedArry.length == 0) {
+            console.log('请选择规格数量')
+            return
+        }
+        //console.log(this.props.proInfo);
+        let cartList = this.props.user.cartList,
+            id = this.props.match.params.productId,
+            count = this.state.count,
+            details = this.state.selectedArry.join(' ');
+
+        let existOne = cartList.find(one => (one.id == id && one.details == details))
+
+        if (existOne) {
+            existOne.count += count;
+            if (existOne.count > 50) {
+                console.log('最多添加50个')
+                existOne.count = 50
+            }
+            this.props.modifyCartList(cartList)
+            return
+        }
+
+        let one = {
+            id, details, count,
+            img: this.state.selectedPic || this.props.proInfo.listPicUrl[0],
+            title: this.props.proInfo.name,
+            price: this.props.proInfo.retailPrice,
+            checked: false
+        }
+        console.log('原购物车', cartList);
+        console.log('单个', one)
+        cartList.push(one)
+        this.props.modifyCartList(cartList)
+
+    }
+    handleReduce = (e) => {
+        if (this.state.selectedArry.length == 0) return
+        let cnt = this.state.count
+        if (cnt <= 1) {
+            console.log('商品一件起售');
+            return
+        }
+        this.setState({...this.state, count: --cnt})
+    };
+    handleAdd = (e) => {
+        if (this.state.selectedArry.length == 0) return
+        let cnt = this.state.count
+        if (cnt >= 50) {
+            return
+        }
+        this.setState({...this.state, count: ++cnt})
+    };
+    handleChange = (e) => {
+        if (this.state.selectedArry.length == 0) return
+        let count = parseInt(e.target.value)
+        console.log(count);
+        if (isNaN(count) || count < 1 || count > 50) {
+            if (count > 50) {
+                console.log('最多50')
+                this.setState({...this.state, count: 50})
+            }
+            ;
+            return
+        } else {
+            this.setState({...this.state, count})
+        }
+    };
+    buyNow = () => {
+        if (!this.state.showMask) {
+            this.toggleMask()
+            return
+        }
+        if (this.state.selectedArry.length == 0) {
+            console.log('请选择规格数量')
+            return
+        }
+        console.log(this.props.user.username);
+        this.props.history.push('/order')
 
     }
 
@@ -97,11 +190,11 @@ export default class Product extends Component {
                 <BackToTop/>
                 <div className="puchaseNav">
                     <span className="service" onClick={this.back}>{showMask ? '返回' : '客服'}</span>
-                    <span className="puchaseNow">立即购买</span>
+                    <span className="puchaseNow" onClick={this.buyNow}>立即购买</span>
                     <span className="addToCart" onClick={this.addToCart}>加入购物车</span>
                 </div>
                 {!this.state.showMask && <div>
-                    <Carousel listPicUrl={listPicUrl}/>
+                    <Carousel listPicUrl={listPicUrl} hasDots={true}/>
                     <div className="characterList">
                         {characteristicList.length > 0 && characteristicList.map((item, idx) => (
                             <div key={idx} className="characterItem">
@@ -225,6 +318,10 @@ export default class Product extends Component {
                             </div>
                         ))}
                     </div>
+                    <MIput count={this.state.count}
+                           handleReduce={this.handleReduce}
+                           handleChange={this.handleChange}
+                           handleAdd={this.handleAdd}/>
                 </div>}
 
             </div>

@@ -15,8 +15,8 @@ export let goToTop = (ele) => {
 
 export function upLoadMore(callback) {
     let timer;
-    let html=document.documentElement;
-    document.addEventListener('scroll', (event) => {
+    let html = document.documentElement;
+    let f = (event) => {
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
 
@@ -27,7 +27,11 @@ export function upLoadMore(callback) {
                 callback();
             }
         }, 50);
-    });
+    }
+    document.addEventListener('scroll', f);
+    return function () {
+        document.removeEventListener('scroll', f)
+    }
 }
 
 export function downRefresh(element, callback) {

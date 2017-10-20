@@ -1,0 +1,32 @@
+[
+  {
+    "username": "higo",
+    "password": "higo",
+    "cartList": [
+      {
+        "img": "http://yanxuan.nosdn.127.net/d77f8cd37529d4fc10932aaf708663bc.png?imageView&amp;thumbnail=160x0&amp;quality=75",
+        "title": "全棉色织磨毛四件套",
+        "details": "烟紫色;1.8M",
+        "price": 329.00,
+        "count": 1,
+        "checked": true
+      },
+      {
+        "img": "http://yanxuan.nosdn.127.net/4ecdaf2f3c2762cb9c1ffdbc51f12818.png?imageView&amp;thumbnail=160x0&amp;quality=75",
+        "title": "黑凤梨 云端沙发组合",
+        "details": "2P+1P+0.5P",
+        "price": 3299.00,
+        "count": 1,
+        "checked": false
+      },
+      {
+        "img": "http://yanxuan.nosdn.127.net/7520b0d06f83bcede00f2c8c883eda43.png?imageView&amp;thumbnail=160x0&amp;quality=75",
+        "title": "升级款柔软保暖羽绒被",
+        "details": "220*240cm碧玺色+白色 1300g",
+        "price": 1049.00,
+        "count": 1,
+        "checked": true
+      }
+    ]
+  }
+]

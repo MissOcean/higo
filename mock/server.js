@@ -28,6 +28,14 @@ app.use(session({
     saveUninitialized: true,
     secret: 'higo'
 }));
+app.use((req, res, next) => {
+    console.log(req.session)
+    if (!req.session.user) {
+        let cartList = req.body.cartList ? req.body.cartList : [];
+        req.session.user = {username: null, password: null, cartList}
+    }
+    next()
+})
 app.use('/api', apiRoutes);
 app.use('/', routes)
 app.listen(9090)

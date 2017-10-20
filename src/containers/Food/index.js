@@ -25,11 +25,13 @@ export default class Food extends Component {
     }
 
     componentWillUnmount() {
-        this._isMounted = false
+        this._isMounted = false;
+        typeof this.unbind == "function" && this.unbind()
+
     }
 
     componentDidUpdate() {
-        this.state.data && upLoadMore(() => {
+        if (this.state.data) this.unbind = upLoadMore(() => {
             getTopicData().then((res) => {
                 this._isMounted && this.setState({
                     data: {

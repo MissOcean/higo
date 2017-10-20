@@ -5,6 +5,8 @@ import BNavbar from "../../components/BNavbar/index";
 import Sidebar from "./Sidebar/index";
 import Cate from "./Cate/index";
 import actions from '../../store/actions/category'
+import NavLink from "react-router-dom/es/NavLink";
+import './index.less'
 // import {getCateList} from '../../api/getData'
 @connect(
     state => state.cateList,
@@ -35,7 +37,9 @@ export default class Category extends Component {
         // console.log(this.props);
         return (
             <div className='category'>
-                <TNavbar/>
+                <div className="header">
+                    <NavLink to='/search' className="searchBtn">输入商品名搜索</NavLink>
+                </div>
                 <Sidebar cateList={this.props.cateList}
                          getCurCate={this.getCurCate}
                          curId={this.props.curCategoryId}

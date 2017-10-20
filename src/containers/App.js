@@ -20,9 +20,22 @@ import TNavbar from "../components/TNavbar/index";
 import Detail from "./Detail/index";
 import SubCateList from "./SubCateList/index";
 import Protected from "../components/Protected/index";
+import {connect} from "react-redux";
+import actions from "../store/actions/session";
+import Order from "./Cart/Order/index";
+import Pay from "./Cart/Pay/index";
 
+@connect(
+    state => state.session,
+    actions
+)
 
 export default class App extends Component {
+    componentWillMount() {
+        //localStorage.setItem('logined', false)
+        this.props.fetchLoginStatus()
+    }
+
     render() {
         return (
             <ConnectedRouter history={history}>
@@ -35,8 +48,11 @@ export default class App extends Component {
                         <Route path="/category" component={Category}></Route>
                         <Route path="/detail" component={Detail}></Route>
                         <Route path="/subCateList" component={SubCateList}/>
-                        <Route path="/login" component={Login}></Route>
+                        <Route exact path="/login" component={Login}></Route>
+                        <Route path="/login/:prepath" component={Login}></Route>
                         <Route path="/register" component={Register}></Route>
+                        <Route path="/order" component={Order}></Route>
+                        <Route path="/pay" component={Pay}></Route>
                     </Switch>
                 </div>
             </ConnectedRouter>

@@ -1,9 +1,10 @@
-.cart_container{
+
+.cart_container {
   background-color: #f4f4f4;
-  height:100%;
+  height: 100%;
   padding-bottom: 2.4rem;
   position: relative;
-  .cartheader{
+  .cartheader {
     position: fixed;
     top: 0;
     flex-shrink: 1;
@@ -14,77 +15,102 @@
     height: .88rem;
     background-color: #FFFFFF;
 
-
-    .logo{
+    .logo {
       line-height: .88rem;
       margin-right: -.8rem;
     }
-    .right{
+    .right {
       float: right;
       line-height: .88rem;
       padding-right: .3rem;
       font-size: .3rem;
     }
   }
-  .baozi{
-    margin-top: 1.08rem;
-    .buycart{
+  .baozi {
+    padding-top: 1.08rem;
+    .buycart {
       background-color: #fff;
-      height:2.8rem;
+      height: 2.8rem;
       display: flex;
       align-items: center;
       margin-bottom: .2rem;
-      .check{
+      .check {
         width: 1.2rem;
         flex-shrink: 0;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        input{
+        input {
           height: .3rem;
           width: .3rem;
         }
       }
 
-      .img{
+      .img {
         width: 2rem;
         height: 2rem;
         flex-shrink: 0;
         background-color: #f4f4f4;
-        img{
+        img {
           display: block;
           width: 100%;
           height: 100%;
         }
       }
-      .all-details{
+      .all-details {
         height: 2rem;
         //background-color: red;
         margin-left: .3rem;
-        flex-grow: 1;
-        div,span{
+        width: 4rem;
+        //flex-grow: 1;
+        div, span {
           font-size: .2rem;
         }
-        .title{
+        .title {
+
           font-size: .289rem;
-          color: #333
+          width: 80%;
+          color: #333;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
         }
-        .number{
+        .number {
           position: absolute;
-          right:.2rem;
+          right: .2rem;
           font-size: .28rem;
         }
-        .one-detail{
+        .one-detail {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 80%;
           margin-top: .09rem;
           margin-bottom: 0.372rem;
           font-size: .22rem;
-          color: #666
+          overflow: hidden;
+          color: #666;
         }
-        .price-btn{
+        .price-btn {
           position: relative;
+          .removeBaozi {
+            width: .8rem;
+            height: .4rem;
+            margin-top: .3rem;
+            box-sizing: border-box;
+            .removeOne {
 
-          .all-btn{
+              width: .8rem;
+              height: .4rem;
+              background-color: crimson;
+              font-size: .27rem;
+              color: #FFFFFF;
+              border-radius: .06rem;
+              text-align: center;
+
+            }
+          }
+          .all-btn {
             position: absolute;
             right: 0;
             width: 3.0652rem;
@@ -93,8 +119,8 @@
             /* vertical-align: middle; */
             display: flex;
             justify-content: center;
-
-            .reduce,.add{
+            margin-top: -.5rem;
+            .reduce, .add {
               display: inline-block;
               width: .8rem;
               height: .5rem;
@@ -103,13 +129,14 @@
               border-radius: .06rem;
               color: #929292;
             }
-            .btn{
+            .btn {
               background-color: transparent;
               width: .8rem;
               height: .5rem;
               border: solid .01rem #d9d9d9;
               text-align: center;
             }
+
           }
         }
       }
@@ -117,42 +144,42 @@
     }
   }
 
-  .place{
-    background-color:  #fff;
+  .place {
+    background-color: #fff;
     width: 100%;
-    height:1rem;
+    height: 1rem;
     position: fixed;
     bottom: .98rem;
     text-align: center;
     line-height: 1rem;
-    .chooseall{
+    .chooseall {
       width: 2.0292rem;
       height: 0.506rem;
       font-size: .27rem;
       text-align: center;
       position: relative;
 
-      .chooseyes{
+      .chooseyes {
 
       }
-      .allprice{
+      .allprice {
         position: absolute;
         right: -146px;
         top: 0;
-        color:#b4282d;
+        color: #b4282d;
       }
     }
-    .buyit{
-      width:2.2rem;
+    .buyit {
+      width: 2.2rem;
       height: 1rem;
       background-color: #ccc;
       position: absolute;
       right: 0;
-      top:0;
+      top: 0;
       font-size: .27rem;
-      color:#FFFFFF;
+      color: #FFFFFF;
     }
-    .buyit.active{
+    .buyit.active {
       background-color: crimson;
 
     }
