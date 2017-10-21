@@ -5,6 +5,7 @@ import {push} from "react-router-redux";
 export default {
     register(user) {
         return function (dispatch, getState) {
+            user = {...getState().session.user, ...user}
             register(user).then(data => {
                 let {code, ...session} = data;//code user success error
                 dispatch({
@@ -14,7 +15,7 @@ export default {
                 if (code == 0) {//注册成功 跳转到登录页 action 非常麻烦
                     dispatch(push("/login"));
                 } else {
-
+                    console.log('登录失败')
                 }
             });
         }

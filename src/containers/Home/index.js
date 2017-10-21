@@ -55,6 +55,10 @@ export default class Home extends Component {
     }
 
     switchCategory = (id) => {
+        if (this.state.currentCategory) {
+            this.setState({...this.state, currentCategory: {}})
+            return
+        }
         id = id || 1005000;
         console.log(id);
         getCateItem(id).then(res => {
@@ -66,13 +70,13 @@ export default class Home extends Component {
     }
 
     render() {
-
+        console.log(this.state.currentCategory)
         return (
             <div className="homePage">
                 {/*顶部导航*/}
                 <div className="topNav">
                     <div className="topBar">
-                        <a className="logo" href="http://localhost:8090">网易严选</a>
+                        <a className="logo" href="http://localhost:8090">嗨购不停</a>
                         <NavLink to="/search" className="searchBtn">输入商品名搜索</NavLink>
                     </div>
                     <div onClick={(e) => {
@@ -81,7 +85,7 @@ export default class Home extends Component {
                          style={{height: '.6rem', backgroundColor: '#fff'}}>水平滚动条
                     </div>
                 </div>
-                {this.state.currentCategory ? <Category {...this.state}/> : <Recommend {...this.state} />}
+                {this.state.currentCategory.id ? <Category {...this.state}/> : <Recommend {...this.state} />}
                 <BackToTop/>
                 <BNavBar/>
             </div>

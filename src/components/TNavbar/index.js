@@ -37,7 +37,7 @@ export default class TNavbar extends Component {
                     </NavLink>
                 </div>
                 <div className="logo">
-                    <a href="http://localhost:8081">网易严选</a>
+                    <a href="http://localhost:8090">嗨购不停</a>
                 </div>
             </div>
         )

@@ -23,6 +23,8 @@ router.post('/login', (req, res) => {
         console.log(logined, req.session.user.cartList)
         if (!logined) oldUser.cartList = oldUser.cartList.concat(req.session.user.cartList)
         req.session.user = oldUser;
+
+
         //console.log(users, oldUser)
         writeUers(users)
         res.json({code: 0, success: '登陆成功', user: oldUser})
@@ -36,7 +38,8 @@ router.post('/register', function (req, res) {
     console.log(user)
     let oldUser = users.find(item => item.username == user.username);
     if (oldUser) {
-        res.json({code: 1, error: '用户名重复'});
+        console.log(user)
+        res.json({code: 1, error: '用户名重复', user:{username:null,password:null,cartList:user.cartList}});
     } else {
         user.cartList = []
         users.push(user);
@@ -62,7 +65,7 @@ router.post('/modifyCartList', function (req, res) {
         res.json({code: 0, success: '修改成功', user});
     } else {
         req.session.user = user
-        res.json({code: 1, error: '用户不存在',user});
+        res.json({code: 1, error: '用户不存在', user});
 
     }
 });
