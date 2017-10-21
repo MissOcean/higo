@@ -21,22 +21,22 @@ export default class Home extends Component {
         let state = JSON.parse(localStorage.getItem('homeData'))
         console.log(state)
         this.state = state || {
-            recommendData: {},
-            cateItemInfo: {},
-            /*recomendData*/
-            focusList: {listPicUrl: [], index: 0},
-            tagList: [],
-            newItemList: [],
-            popularItemList: [],
-            cateList: [],
-            topicList: [],
-            /*限时购、严选福利*/
-            flashSaleIndexVO: {},
-            saleIndexVO: {},
-            /*cateItemInfo*/
-            currentCategory: {},
-            categoryItemList: []
-        }
+                recommendData: {},
+                cateItemInfo: {},
+                /*recomendData*/
+                focusList: {listPicUrl: [], index: 0},
+                tagList: [],
+                newItemList: [],
+                popularItemList: [],
+                cateList: [],
+                topicList: [],
+                /*限时购、严选福利*/
+                flashSaleIndexVO: {},
+                saleIndexVO: {},
+                /*cateItemInfo*/
+                currentCategory: {},
+                categoryItemList: []
+            }
     }
 
     componentWillMount() {
@@ -47,16 +47,17 @@ export default class Home extends Component {
                 this.state.focusList = {...this.state.focusList, listPicUrl: jsonData.focusList.map(item => item.picUrl)}
                 this.state.tagList = jsonData.tagList.slice(0, 4)
                 /*this.state.newItemList = jsonData.newItemList
-                this.state.popularItemList = jsonData.popularItemList
-                this.state.cateList = jsonData.cateList*/
+                 this.state.popularItemList = jsonData.popularItemList
+                 this.state.cateList = jsonData.cateList*/
                 this.setState({...this.state})
             }
         )
     }
 
     switchCategory = (id) => {
-        if (this.state.currentCategory) {
+        if (this.state.currentCategory.id) {
             this.setState({...this.state, currentCategory: {}})
+            localStorage.setItem('homeData', null)
             return
         }
         id = id || 1005000;
@@ -70,7 +71,7 @@ export default class Home extends Component {
     }
 
     render() {
-        console.log(this.state.currentCategory)
+        console.log('render home', this.state.currentCategory)
         return (
             <div className="homePage">
                 {/*顶部导航*/}
