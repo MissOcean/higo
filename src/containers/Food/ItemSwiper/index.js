@@ -7,7 +7,7 @@ export default class ItemSwiper extends Component {
         new Swiper('.item-swiper-container', {
             // autoplay: 1000,//可选选项，自动滑动
             freeMode: true,
-            slidesPerView : 4
+            slidesPerView : 'auto'
         })
     }
 

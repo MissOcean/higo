@@ -69,7 +69,7 @@ export default class Recommend extends Component {
                 {/*专题精选*/}
                 <div className="topicList">
                     <div className="header">
-                        <span>品牌制造商直供</span><i className="iconfont icon-roundright"></i>
+                        <span>专题精选</span><i className="iconfont icon-roundright"></i>
                     </div>
                     <div className="topics">滑动部分</div>
                 </div>

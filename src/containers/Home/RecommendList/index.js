@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import {HashRouter as Router, Route, NavLink} from 'react-router-dom';
 import './index.less'
 
 export default class RecommendList extends Component {
@@ -8,8 +8,20 @@ export default class RecommendList extends Component {
         itemList: []
     }
 
+    componentDidMount() {
+        let options = {
+            // autoplay: 1000,//可选选项，自动滑动
+            freeMode: true,
+            observer: true,//修改swiper自己或子元素时，自动初始化swiper    重要
+            observeParents: true,//修改swiper的父元素时，自动初始化swiper  重要
+            slidesPerView: 'auto' //slider容器能够同时显示的slides数量,默认为1
+        }
+        this._swiper = new Swiper(this.refs.swiper, options)
+    }
+
     render() {
-        let {headerInfos} = this.props
+        let {headerInfos, itemList, match} = this.props
+        console.log('render recommendList', itemList);
         return (
             <div className="recommendList">
                 <div className="header"
@@ -22,7 +34,38 @@ export default class RecommendList extends Component {
                     <div className="trigon"></div>
                 </div>
                 <div className="scroll">
-                    滚动部分
+                    <div className="swiper-container" ref="swiper">
+                        <div className="swiper-wrapper">
+                            {itemList.map((item, idx) => {
+                                //console.log(item)
+                                return (
+                                    <div className="swiper-slide" key={idx}>
+                                        <div className="item" onClick={() => {
+                                            console.log(this.props);
+                                        }}>
+                                            <div className="picPanel">
+                                                {(!item.productPlace == true && item.colorNum > 0) &&
+                                                <div className="label">
+                                                    {item.colorNum}色可选</div>}
+                                                {item.productPlace && <div className="label">{item.productPlace}</div>}
+                                                <img src={item.listPicUrl} alt=""/>
+                                            </div>
+                                            <div className="tag"></div>
+                                            <p className="name">{item.name}</p>
+                                            <p className="desc">{item.simpleDesc}</p>
+                                            <p className="price">￥ {item.retailPrice}</p>
+                                        </div>
+                                    </div>)
+                            })}
+                            <div className="showAll swiper-slide">查看全部</div>
+                        </div>
+                        {/*<div className="swiper-pagination"></div>
+
+                         <div className="swiper-button-prev"></div>
+                         <div className="swiper-button-next"></div>
+
+                         <div className="swiper-scrollbar"></div>*/}
+                    </div>
                 </div>
             </div>
         )
