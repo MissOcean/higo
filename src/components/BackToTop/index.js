@@ -9,7 +9,7 @@ export default class BackToTop extends Component {
     }
 
     handleClick = () => {
-        //console.log(this.isScrolling)
+        console.log(this.isScrolling)
         if (this.isScrolling) return
         this.isScrolling = true;
         this._timer = goBackToTop(() => {
@@ -17,6 +17,7 @@ export default class BackToTop extends Component {
         })
     }
     handleScroll = (e) => {
+        //console.log('scroll')
         if (this.count == undefined) this.count = 0
         if (++this.count < 20) return
         else {
@@ -24,7 +25,8 @@ export default class BackToTop extends Component {
             let fs = window.config.htmlfontSize;
             /*定死为13rem*/
             //console.log(document.documentElement.scrollTop > 13 * fs);
-            let shouldShow = document.documentElement.scrollTop > 13 * fs
+            let shouldShow = document.scrollingElement.scrollTop > 13 * fs
+            //console.log(shouldShow, this.state.show)
             if (shouldShow && this.state.show == false) {
                 //console.log('set true')
                 this.setState({show: true})

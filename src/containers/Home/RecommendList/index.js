@@ -12,8 +12,10 @@ export default class RecommendList extends Component {
         let options = {
             // autoplay: 1000,//可选选项，自动滑动
             freeMode: true,
-            observer: true,//修改swiper自己或子元素时，自动初始化swiper    重要
-            observeParents: true,//修改swiper的父元素时，自动初始化swiper  重要
+            //修改swiper自己或子元素时，自动初始化swiper    重要
+            observer: true,
+            //修改swiper的父元素时，自动初始化swiper  重要
+            observeParents: true,
             slidesPerView: 'auto' //slider容器能够同时显示的slides数量,默认为1
         }
         this._swiper = new Swiper(this.refs.swiper, options)

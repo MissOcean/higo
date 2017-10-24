@@ -29,16 +29,16 @@ export function fomateDate(date, format) {
     return format;
 }
 
-//上拉加载
+//下拉加载
 export function upLoadMore(callback) {
     let timer;
-    let html = document.documentElement
+    let scrollEle = document.scrollingElement
     let f = (event) => {
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
-            let scrollTop = html.scrollTop;//向上卷去的高度
-            let winHeight = html.clientHeight;//可视区域的高度
-            let contentHeight = html.scrollHeight;//内容区域的总高度
+            let scrollTop = scrollEle.scrollTop;//向上卷去的高度
+            let winHeight = scrollEle.clientHeight;//可视区域的高度
+            let contentHeight = scrollEle.scrollHeight;//内容区域的总高度
             if (winHeight + scrollTop + 10 >= contentHeight) {
                 callback();
             }
@@ -54,18 +54,18 @@ export function upLoadMore(callback) {
 //回到顶部
 export function goBackToTop(callback, duration = 400) {
 
-    let html = document.documentElement;
+    let scrollEle = document.scrollingElement;
     if (duration == 0) {
-        html.scrollTop = 0;
+        scrollEle.scrollTop = 0;
         typeof callback == 'function' && callback()
         return
     }
     let inteval = 20,
-        distance = html.scrollTop * inteval / duration;
+        distance = scrollEle.scrollTop * inteval / duration;
 
     let timer = setInterval(() => {
-        html.scrollTop -= distance
-        if (html.scrollTop <= 0) {
+        scrollEle.scrollTop -= distance
+        if (scrollEle.scrollTop <= 0) {
             clearInterval(timer);
             typeof callback == 'function' && callback()
         }

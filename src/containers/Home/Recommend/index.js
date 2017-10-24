@@ -5,6 +5,8 @@ import RecommendList from "../RecommendList/index";
 import Item from "../../../components/Item/index";
 import CopyRight from "../../../components/CopyRight/index";
 import './index.less'
+import TopicList from "../TopicList/index";
+
 export default class Recommend extends Component {
     render() {
         let {
@@ -71,7 +73,7 @@ export default class Recommend extends Component {
                     <div className="header">
                         <span>专题精选</span><i className="iconfont icon-roundright"></i>
                     </div>
-                    <div className="topics">滑动部分</div>
+                    <TopicList topicList={topicList}/>
                 </div>
                 {/*分类精选*/}
                 <div className="cateList">
