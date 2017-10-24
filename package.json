@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --port 8090 --open"
+    "dev": "webpack-dev-server --port 8090 --open",
+    "build":"webpack"
   },
   "keywords": [],
   "author": "",
