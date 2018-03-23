@@ -37,7 +37,7 @@ export default class Recommend extends Component {
                 </div>
                 {/*tags*/}
                 <ul className="log">
-                    <li><i className="iconfont icon-roundcheck"></i><span>网易自营品牌</span></li>
+                    <li><i className="iconfont icon-roundcheck"></i><span>自营品牌</span></li>
                     <li><i className="iconfont icon-roundcheck"></i><span>30天无忧退换</span></li>
                     <li><i className="iconfont icon-roundcheck"></i><span>48小时快速退款</span></li>
                 </ul>

@@ -12,7 +12,7 @@ export default class CopyRight extends Component {
                     <div>电脑版</div>
                 </div>
                 <div className="copyright">
-                    <span>网易公司版权所有 © 1997-2017</span>
+                    <span>版权所有 © 1997-2017</span>
                     <span>食品经营许可证：JY13301080111719</span>
                 </div>
             </div>

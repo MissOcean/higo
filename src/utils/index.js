@@ -42,7 +42,7 @@ export function downRefresh(element, callback) {
     function touchStart(event) {
         if (element.offsetTop == 0 && element.scrollTop == 0) {
             //取得的是这个点距离顶部的距离
-            startY = event.targetTouches[0].pageY;
+            startY = event.targetTouches[v0].pageY;
             touchDistance = 0;
             body.addEventListener('touchmove', touchMove);
             body.addEventListener('touchend', touchEnd);

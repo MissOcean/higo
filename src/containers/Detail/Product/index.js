@@ -248,7 +248,7 @@ export default class Product extends Component {
                         <div className="service">
                         <span>
                             <span>服务 : </span>
-                            <span style={{color: '#7f7f7f'}}>30天无忧退换货 免费配送到家 网易自营品牌</span>
+                            <span style={{color: '#7f7f7f'}}>30天无忧退换货 免费配送到家 自营品牌</span>
                         </span>
                             <i className="icon-right iconfont"></i>
                         </div>
